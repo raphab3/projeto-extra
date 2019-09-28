@@ -1,0 +1,430 @@
+<section class="content-header">
+    <h1>
+      Cadastro
+      <small>Alunos</small>
+    </h1>
+
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <div class="row">
+      <div class="col-md-3">
+
+        <!-- Profile Image -->
+        <div class="box box-primary">
+          <div class="box-body box-profile">
+            <h5  class="text-muted text-center">Foto de Perfil</h5>
+            <img id="fotoPerfil" class="profile-user-img img-responsive" src="../../../../assets/dist/img/avatar5.png" alt="User profile picture">
+
+
+            <p class="text-muted text-center">Máx: 5mb</p>
+
+            <div  class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+
+              <p-fileUpload mode="basic" name="anexo" auto="true" accept="image/*" maxFileSize="1000000" chooseLabel="Anexar" [url]="urlUploadAnexo" (onBeforeSend)="antesUploadAnexo($event)">
+              </p-fileUpload>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9">
+        <div class="box box-primary">
+
+          <div class="nav-tabs-custom">
+
+            <!-- form -->
+
+            <div class="content">
+              <form  #f="ngForm" (ngSubmit)="onSubimit(f)">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+
+                    <!-- Data de Cadastro -->
+
+                    <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                      <span class="ui-float-label">
+                        <p-calendar [(ngModel)]="dataCadastro" dateFormat="dd-mm-yy" [disabled]="disabled" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataCadastro" [ngModel]="aluno.dataCadastro">
+                        </p-calendar>
+                        <label for="float-input">Data Cadastro</label>
+                      </span>
+                    </div>
+
+                    <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                      <span class="ui-float-label">
+                        <p-calendar [(ngModel)]="dataUltimaAlteracao" dateFormat="dd-mm-yy" [disabled]="disabled" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataUltimaAlteracao" [ngModel]="daluno.ataUltimaAlteracao">
+                        </p-calendar>
+                        <label for="float-input">Data Ultima Alteração</label>
+                      </span>
+                    </div>
+                    <br /><br />
+
+                    <h3 class="ui-g-12 ui-md-12 ui-lg-12">Dados Pessoais</h3>
+
+                    <!-- Matrícula -->
+                    <div class="form-group" class="ui-g-12 ui-md-2 ui-lg-2 ui-fluid">
+                      <span class="ui-float-label">
+                        <input type="text" class="form-control"  name="codigo" [(ngModel)]="aluno.codigo">
+                        <label for="float-input">Matrícula</label>
+                      </span>
+                    </div>
+
+                      <!--Nome do Aluno-->
+                      <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+                        <span class="ui-float-label">
+                          <input  autocomplete="off" #aluno="ngModel" name="nome"   type="text"  pInputText [ngModel]="aluno.nome" (click)="clear()" required minlength="10">
+
+                          <label class="nomeCampo" class="form-control-label" for="float-input"
+                          *ngIf="aluno.hasError('required') && aluno.pristine ">Nome do Aluno
+                        </label>
+                        <label class="nomeCampo" class="form-control-label" for="float-input"
+                        *ngIf="aluno.hasError('required') && aluno.dirty" style="color: red;"
+                        >Obrigatório
+                      </label>
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="aluno.hasError('minlength') && aluno.dirty" style="color: red;"
+                      >Mínimo: 10 caracteres
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="aluno.valid" style="color: rgb(6, 155, 6)"> Válido
+                  </label>
+                </span>
+                </div>
+
+                <!-- Data de Nascimento -->
+
+                   <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-calendar  dateFormat="dd-mm-yy" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataNascimento" [ngModel]="aluno.dataNascimento">
+                      </p-calendar>
+                      <label for="float-input">Data de Nascimento</label>
+                    </span>
+                  </div>
+
+                  <!-- Sexo -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-2 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="genero" [ngModel]="aluno.genero">
+                      <label for="float-input">Sexo</label>
+                    </span>
+                  </div>
+
+                  <!-- Município de Origem -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="municipioDeOrigem" [ngModel]="aluno.municipioDeOrigem">
+                      <label for="float-input">Município de Origem</label>
+                    </span>
+                  </div>
+
+                  <!-- Estado de Origem -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="estadoDeOrigem" [ngModel]="aluno.estadoDeOrigem">
+                      <label for="float-input">Estado de Origem</label>
+                    </span>
+                  </div>
+
+                    <!-- Nacionalidade -->
+                    <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                      <span class="ui-float-label">
+                        <input type="text" class="form-control" name="paisDeOrigem" [ngModel]="aluno.paisDeOrigem">
+                        <label for="float-input">Nacionalidade</label>
+                      </span>
+                    </div>
+
+
+                  <!-- Filiação Mãe-->
+                  <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  autocomplete="off" #filiacaoMae="ngModel" name="filiacaoMae"   type="text"  pInputText [ngModel]="filiacaoMae.filiacaoMae" (click)="clear()" required minlength="10">
+
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="filiacaoMae.hasError('required') && filiacaoMae.pristine ">Nome da Mãe
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="filiacaoMae.hasError('required') && filiacaoMae.dirty" style="color: red;"
+                    >Obrigatório
+                  </label>
+                  <label class="nomeCampo" class="form-control-label" for="float-input"
+                  *ngIf="filiacaoMae.hasError('minlength') && filiacaoMae.dirty" style="color: red;"
+                  >Mínimo: 10 caracteres
+                </label>
+
+               </span>
+            </div>
+
+                  <!--  Filiação Pai -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="filiacaoPai" [ngModel]="aluno.filiacaoPai">
+                      <label for="float-input"> Nome do Pai</label>
+                    </span>
+                  </div>
+
+
+                   <!--Email do Aluno -->
+            <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-8 ui-fluid">
+              <span class="ui-float-label">
+                <input type="text" class="form-control" name="email" [ngModel]="aluno.email">
+                <label for="float-input">Email do Aluno</label>
+              </span>
+            </div>
+
+             <!--  Telefone do aluno -->
+             <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+              <span class="ui-float-label">
+                <input type="text" class="form-control" name="telefone" [ngModel]="aluno.telefone">
+                <label for="float-input">Telefone do Aluno</label>
+              </span>
+            </div>
+
+                  <!--  Responsável -->
+
+                  <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-12 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  autocomplete="off" #adultoResponsavel="ngModel" name="nomeResponsavel"   type="text"  pInputText [ngModel]="adultoResponsavel.nomeResponsavel" (click)="clear()" required minlength="10">
+
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="adultoResponsavel.hasError('required') && adultoResponsavel.pristine ">Adulto Responsável
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="adultoResponsavel.hasError('required') && adultoResponsavel.dirty" style="color: red;"
+                    >Obrigatório
+                  </label>
+                  <label class="nomeCampo" class="form-control-label" for="float-input"
+                  *ngIf="adultoResponsavel.hasError('minlength') && adultoResponsavel.dirty" style="color: red;"
+                  >Mínimo: 10 caracteres
+                </label>
+                <label class="nomeCampo" class="form-control-label" for="float-input"
+                *ngIf="adultoResponsavel.valid" style="color: rgb(6, 155, 6)"> Válido
+              </label>
+            </span>
+            </div>
+
+                    <!--  Email do Responsável -->
+                    <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-8 ui-fluid">
+                      <span class="ui-float-label">
+                        <input type="text" class="form-control" name="email" [ngModel]="aluno.emailResponsavel">
+                        <label for="float-input">Email do Responsável</label>
+                      </span>
+                    </div>
+
+
+            <!--  Telefone do Responsável -->
+            <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+              <span class="ui-float-label">
+                <input  autocomplete="off" #telefoneResonsavel="ngModel" name="telefoneRespon"   type="text"  pInputText [ngModel]="telefoneResonsavel.telefoneResponsavel" (click)="clear()" required minlength="10">
+                <label class="nomeCampo" class="form-control-label" for="float-input"
+                *ngIf="telefoneResonsavel.hasError('required') && telefoneResonsavel.pristine "> Telefone do Responsavel
+              </label>
+              <label class="nomeCampo" class="form-control-label" for="float-input"
+              *ngIf="telefoneResonsavel.hasError('required') && telefoneResonsavel.dirty" style="color: red;"
+              >Obrigatório
+            </label>
+            <label class="nomeCampo" class="form-control-label" for="float-input"
+            *ngIf="telefoneResonsavel.hasError('minlength') && telefoneResonsavel.dirty" style="color: red;"
+            >Mínimo: 11 caracteres
+          </label>
+          <label class="nomeCampo" class="form-control-label" for="float-input"
+          *ngIf="telefoneResonsavel.valid" style="color: rgb(6, 155, 6)"> Válido
+        </label>
+      </span>
+      </div>
+
+                 <!-- Dados Escolares-->
+                  <!-- <br /><br />
+
+                  <h3 class="ui-g-12 ui-md-12 ui-lg-12">Dados Escolares</h3> -->
+
+                   <!--  Ensino  -->
+<!--
+                  <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  autocomplete="off" #ensino="ngModel" name="nomeEnsino"   type="text"  pInputText [ngModel]="ensino.nomeEnsino" (click)="clear()" required minlength="10">
+
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="ensino.hasError('required') && ensino.pristine ">Ensino
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="ensino.hasError('required') && ensino.dirty" style="color: red;"
+                    >Obrigatório
+                  </label>
+                  </span>
+            </div> -->
+
+                  <!--  Serie  -->
+<!--
+                  <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  autocomplete="off" #serie="ngModel" name="nomeSerie"   type="text"  pInputText [ngModel]="serie.nomeSerie" (click)="clear()" required minlength="10">
+
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="serie.hasError('required') && serie.pristine ">Serie
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="serie.hasError('required') && serie.dirty" style="color: red;"
+                    >Obrigatório
+                  </label>
+                  </span>
+            </div> -->
+
+                   <!--  Turma  -->
+                   <!-- <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-2 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  autocomplete="off" #turma="ngModel" name="nomeTurma"   type="text"  pInputText [ngModel]="turma.nomeTurma" (click)="clear()" required minlength="10">
+
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="turma.hasError('required') && turma.pristine ">Turma
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="turma.hasError('required') && turma.dirty" style="color: red;"
+                    >Obrigatório
+                  </label>
+                  </span>
+            </div> -->
+
+                   <!--  Turno  -->
+                   <!-- <div class="form-group has-danger" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  autocomplete="off" #turno="ngModel" name="nomeTurma"   type="text"  pInputText [ngModel]="turno.nomeTurno" (click)="clear()" required minlength="10">
+
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="turno.hasError('required') && turno.pristine ">Turno
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="turno.hasError('required') && turno.dirty" style="color: red;"
+                    >Obrigatório
+                  </label>
+                  </span>
+            </div> -->
+
+
+            <!-- Endereço -->
+                    <br /><br />
+
+
+                    <h3 class="ui-g-12 ui-md-12 ui-lg-12">Endereço</h3>
+
+
+                  <!--  CEP -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input name="cep"  type="text"  pInputText #cep="ngModel" [ngModel]="aluno.cep"
+                      required (blur)="consultaCep(cep.value, f)">
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="cep.hasError('required') && cep.pristine "
+                      >CEP</label>
+                      <label class="nomeCampo" class="form-control-label" for="float-input"
+                      *ngIf="cep.hasError('required') && cep.dirty" style="color: red;"
+                      > Obrigatório
+                    </label>
+                    <label class="nomeCampo" class="form-control-label" for="float-input"
+                    *ngIf="cep.valid" style="color: rgb(6, 155, 6)"> Válido
+                  </label>
+                </span>
+              </div>
+
+                  <!--  Logradouro -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-7 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="logradouro" [ngModel]="logradouro">
+                      <label for="float-input">Logradouro</label>
+                    </span>
+                  </div>
+
+
+                  <!--  Numero -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-2 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="numero" [ngModel]="numero">
+                      <label for="float-input">Número</label>
+                    </span>
+                  </div>
+
+                   <!--Municipio -->
+                   <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="cidade" [ngModel]="cidade">
+                      <label for="float-input">Cidade</label>
+                    </span>
+                  </div>
+
+                  <!-- Bairro -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="bairro" [ngModel]="bairro">
+                      <label for="float-input"> Bairro</label>
+                    </span>
+                  </div>
+
+                  <!--  UF  -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="uf" [ngModel]="uf">
+                      <label for="float-input"> UF</label>
+                    </span>
+                  </div>
+
+                    <!--  Complemento -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="complemento" [ngModel]="complemento">
+                      <label for="float-input">Complemento</label>
+                    </span>
+                  </div>
+
+                  <!--  Distrito -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="distrito" [ngModel]="distrito">
+                      <label for="float-input">Distrito</label>
+                    </span>
+                  </div>
+
+
+                   <br /><br />
+
+
+
+
+                    <!-- Botoes -->
+
+                    <div class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                      <button pButton type="button" label="Salvar" type="submit" class="ui-button-raised ui-button-primary" [disabled]="!f.valid"></button>
+
+                    </div>
+                    <div   class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                      <button pButton type="button" label="Limpar" class="ui-button-raised ui-button-secondary"
+                      (click)="limpar(f)" (click)="clear()">
+                    </button>
+                  </div>
+                  <div   class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                    <button pButton routerLink="/alunos" type="button" label="Voltar" class="ui-button-raised ui-button-danger"></button>
+                  </div>
+
+
+                </div>
+              </div>
+              <div  class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid"  >
+                <p-toast position="bottom-right"></p-toast>
+              </div>
+            </form>
+          </div>
+
+          <!-- fim form -->
+
+          <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+

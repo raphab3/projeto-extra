@@ -1,0 +1,17 @@
+#botaoAdd{
+    float: right;
+}
+#eye{
+    margin-right: 10px;
+}
+
+#eye :hover{
+    color: red;
+}
+#pencil :hover{
+    color: red;
+}
+
+.content-header{
+    margin: 0 0 -30px 0;
+}

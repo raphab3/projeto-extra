@@ -1,0 +1,189 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <h2>Detalhe de Unidades Educacionais</h2>
+
+    <br />
+    <div class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+      <span class="ui-float-label">
+        <input  type="text"  pInputText  value="{{unidade.unidadeEducacional}}" disabled="true"> 
+      </span>
+    </div>
+  
+    <div class="ui-g-12 ui-md-6 ui-lg-2 ui-fluid">
+      <span class="ui-float-label">
+        <input name="data"  type="text"  pInputText value="{{unidade.data | date: 'dd/MM/yyyy'}}" disabled="true"> 
+      </span>
+    </div>
+
+    <div class="ui-g-12 ui-md-6 ui-lg-7 ui-fluid">
+      <span class="ui-float-label">
+        <input name="CEP"  type="text"  pInputText value="{{unidade.cep}}" disabled="true"> 
+      </span>
+    </div>
+
+    <div class="ui-g-12 ui-md-12 ui-lg-6 ui-fluid">
+      <span class="ui-float-label">
+        <input name="endereco"  type="text"  pInputText value="{{unidade.endereco}}" disabled="true"> 
+      </span>
+    </div>
+
+    <div class="ui-g-9 ui-md-6 ui-lg-4 ui-fluid">
+      <span class="ui-float-label">
+        <input name="complemento"  type="text"  pInputText value="{{unidade.complemento}}" disabled="true"> 
+      </span>
+    </div>
+    <div class="ui-g-3 ui-md-2 ui-lg-2 ui-fluid">
+      <span class="ui-float-label">
+        <input name="numero"  type="text"  pInputText value="{{unidade.numero}}" disabled="true"> 
+      </span>
+    </div>
+    <div class="ui-g-4 ui-md-4 ui-lg-5 ui-fluid">
+      <span class="ui-float-label">
+        <input name="bairro" type="text"  pInputText value="{{unidade.bairro}}" disabled="true"> 
+      </span>
+    </div>
+    <div class="ui-g-5 ui-md-6 ui-lg-5 ui-fluid">
+      <span class="ui-float-label">
+        <input name="cidade" type="text"  pInputText value="{{unidade.cidade}}" disabled="true"> 
+      </span>
+    </div>
+    <div class="ui-g-3 ui-md-6 ui-lg-2 ui-fluid">
+      <span class="ui-float-label">
+        <input name="UF" id="float-input" type="text"  pInputText value="{{unidade.uf}}" disabled="true">  
+      </span>
+    </div>
+
+
+    <h3 class="ui-g-12 ui-md-12 ui-lg-12">Outros Itens de Infra-Estrutura Educacional</h3> 
+
+<!-- Playground-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.playGround"  name="playGround" binary="true" disabled="true"></p-checkbox> Playground                           
+  </span>
+</div>
+
+<!-- Biblioteca-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.biblioteca"  name="biblioteca" binary="true"  disabled="true"></p-checkbox> Biblioteca                           
+  </span>
+</div>
+
+<!-- Refeitório-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.refeitorio"  name="refeitorio" binary="true" disabled="true"></p-checkbox> Refeitório                          
+  </span>
+</div>
+
+<!-- Quadra Desportiva-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.quadraEsportiva"  name="quadraEsportiva" binary="true" disabled="true"></p-checkbox> Quadra Esportiva                          
+  </span>
+</div>
+
+<!-- Sala de Leitura-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaLeitura"  name="salaLeitura" binary="true" disabled="true"></p-checkbox> Sala de Leitura                      
+  </span>
+</div>
+
+<!-- Campo de Futebol-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.campoFutebol"  name="campoFutebol" binary="true" disabled="true"></p-checkbox> Campo de Futebol                           
+  </span>
+</div>
+
+<!-- Laboratório de Ciências-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.laboratorioDeCiencias"  name="laboratorioDeCiencias" binary="true" disabled="true"></p-checkbox> Laboratório de Ciências                          
+  </span>
+</div>
+
+<!-- Laboratório de Informática-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.laboratorioDeInformatica"  name="laboratorioDeInformatica" binary="true" disabled="true"></p-checkbox> Laboratório de Informática                         
+  </span>
+</div>
+
+<!-- Laboratório de Robôtica-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.laboratorioDeRobotica"  name="laboratorioDeRobotica" binary="true" disabled="true">
+    </p-checkbox> Laboratório de Robôtica                         
+  </span>
+</div>
+
+
+
+<!-- Sala do Diretor-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaDiretoria"  name="salaDiretoria" binary="true" disabled="true">
+    </p-checkbox> Sala do Diretor                         
+  </span>
+</div>
+
+<!-- Sala dos Professores-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaProfessores"  name="salaProfessores" binary="true" disabled="true">
+    </p-checkbox> Sala dos Professores                        
+  </span>
+</div>
+
+<!-- Sala de Atendimento Especial -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaAtendimentoEspecial"  name="salaAtendimentoEspecial" binary="true" disabled="true">
+    </p-checkbox> Sala de Atendimento Especial                        
+  </span>
+</div>
+
+<!-- Conzinha -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.cozinha"  name="cozinha" binary="true" disabled="true">
+    </p-checkbox> Conzinha                        
+  </span>
+</div>
+
+<!-- Sanitário Fora do Prédio -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.sanitarioForaPredio"  name="sanitarioForaPredio" binary="true" disabled="true">
+    </p-checkbox> Sanitário Fora do Prédio                     
+  </span>
+</div>
+
+<!-- Sanitário Dentro do Prédio -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-6 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.sanitarioDentroPredio"  name="sanitarioDentroPredio" binary="true" disabled="true">
+    </p-checkbox> Sanitário Dendtro do Prédio                     
+  </span>
+</div>
+
+
+    <br /><br />
+    <div class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+      <button routerLink="/unidades-educacionais" pButton type="button" label="Voltar" class="ui-button-raised ui-button-secondary"></button>
+    </div>
+
+    
+
+
+   
+  </div>
+  
+  
+  
+</div>
+
+

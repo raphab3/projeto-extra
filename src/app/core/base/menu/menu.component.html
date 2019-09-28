@@ -1,0 +1,68 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar" id="sidebar">
+    <!-- Sidebar Menu -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li id="cabecalhoMenu" class="header">Menu</li>
+      <li class="treeview" *ngIf="auth.temPermissao('ROLE_PESQUISA_NUCLEO')">
+        <a href="#"
+          ><i class="fa fa-link"></i> <span>CADASTRO</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li
+            class="menu-item"
+            routerLinkActive="ativo"
+            *ngIf="auth.temPermissao('ROLE_PESQUISA_NUCLEO')"
+          >
+            <a class="linkAtivo" routerLink="nucleos-regionais"
+              ><i class="fa fa-circle-o"></i>Núcleos Regionais
+            </a>
+          </li>
+          <li
+            class="menu-item"
+            routerLinkActive="ativo"
+            *ngIf="auth.temPermissao('ROLE_PESQUISA_UNIDADE_EDUCACIONAL')"
+          >
+            <a routerLink="unidades-educacionais"
+              ><i class="fa fa-circle-o"></i>Unidade Educacional</a
+            >
+          </li>
+          <li class="menu-item" routerLinkActive="ativo">
+            <a routerLink="disciplinas"
+              ><i class="fa fa-circle-o"></i>Disciplinas</a
+            >
+          </li>
+          <li
+            class="menu-item"
+            routerLinkActive="ativo"
+            *ngIf="auth.temPermissao('ROLE_PESQUISA_SERVIDOR')"
+          >
+            <a routerLink="servidores"
+              ><i class="fa fa-circle-o"></i>Servidores</a
+            >
+          </li>
+          <li
+            class="menu-item"
+            routerLinkActive="ativo"
+            *ngIf="auth.temPermissao('ROLE_PESQUISA_ESTUDANTE')"
+          >
+            <a routerLink="alunos"><i class="fa fa-circle-o"></i>Alunos</a>
+          </li>
+          <li
+            class="menu-item"
+            routerLinkActive="ativo"
+            *ngIf="auth.temPermissao('ROLE_PESQUISA_EVENTO')"
+          >
+            <a routerLink="eventos"><i class="fa fa-circle-o"></i>Eventos</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,316 @@
+<section class="content-header">
+    <h1>
+      Editar
+      <small>{{aluno.nome}}s</small>
+    </h1>
+    
+  </section>
+  
+  <!-- Main content -->
+  <section class="content">
+    
+    <div class="row">
+      <div class="col-md-3">
+        
+        <!-- Profile Image -->
+        <div class="box box-primary">
+          <div class="box-body box-profile">
+            <h5  class="text-muted text-center">Foto de Perfil</h5>
+            <img id="fotoPerfil" class="profile-user-img img-responsive" src="../../../../assets/dist/img/avatar5.png" alt="User profile picture">
+            
+            
+            <p class="text-muted text-center">Máx: 5mb</p>
+            
+            <div  class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+              
+              <p-fileUpload mode="basic" name="anexo" auto="true" accept="image/*" maxFileSize="1000000" chooseLabel="Anexar" [url]="urlUploadAnexo" (onBeforeSend)="antesUploadAnexo($event)">
+              </p-fileUpload>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-9">
+        <div class="box box-primary">
+          
+          <div class="nav-tabs-custom">
+            
+            <!-- form -->
+            
+            <div class="content">
+              <form  #f="ngForm" (ngSubmit)="onSubimit(f)">
+                <div class="ui-g">
+                  <div class="ui-g-12">
+                    
+                    <!-- Data de Cadastro -->
+                                                           
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                     <p style="size: 12px;">Data Cadastro</p>   
+                      <span class="ui-float-label">
+                        <input name="data"  type="text"  pInputText value="{{aluno.dataCadastro}}" [(ngModel)]="aluno.dataCadastro" disabled="true">  
+                      </span>
+                    </div>
+
+                                        
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                      <p style="size: 12px;">Ultima Alteração</p>   
+                       <span class="ui-float-label">
+                         <input name="data"  type="text"  pInputText value="{{aluno.dataUltimaAlteracao}}" 
+                         [(ngModel)]="aluno.dataUltimaAlteracao" disabled="true">  
+                       </span>
+                     </div>
+
+                    <br /><br />
+                    
+                    <h3 class="ui-g-12 ui-md-12 ui-lg-12">Dados Pessoais</h3>
+                    
+                    <!-- Matrícula -->
+                    <div class="form-group" class="ui-g-12 ui-md-2 ui-lg-2 ui-fluid">
+                      <span class="ui-float-label">
+                        <input type="text" pInputText  value="{{aluno.codigo}}" name="codigo" [(ngModel)]="aluno.codigo"> 
+                        <label for="float-input">Matrícula</label>
+                      </span>
+                    </div>
+                    
+                      <!--Nome do Aluno-->
+                      <div class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+                          <span class="ui-float-label">
+                            <input  type="text"  pInputText  value="{{aluno.nome}}" name="nome" [(ngModel)]="aluno.nome" > 
+                            <label for="float-input">Nome do Aluno</label>
+                          </span>
+                        </div>        
+                  
+                <!-- Data de Nascimento -->
+                  
+                   <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input disabled="true" type="text" pInputText  value="{{aluno.dataNascimento}}" name="dataNascimento" [ngModel]="aluno.dataNascimento | date:'dd/MM/yyyy'">  
+                      <label for="float-input">Data de Nascimento</label>
+                    </span>
+                  </div>
+
+                  <!-- Sexo -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-2 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" pInputText  value="{{aluno.genero}}" name="genero" [ngModel]="aluno.genero"> 
+                      <label for="float-input">Sexo</label>
+                    </span>
+                  </div>
+                    
+                  <!-- Municipio Origem -->
+                  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input name="municipioDeOrigem"  type="text"  pInputText value="{{aluno.municipioDeOrigem}}" [(ngModel)]="aluno.municipioDeOrigem"> 
+                      <label for="float-input">Municipio Origem</label>
+                    </span>
+                  </div> 
+
+
+                  <!-- Estado Origem -->
+                  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input name="stadoDeOrigem"  type="text"  pInputText value="{{aluno.estadoDeOrigem}}" [(ngModel)]="aluno.estadoDeOrigem"> 
+                      <label for="float-input">Estado Origem</label>
+                    </span>
+                  </div> 
+
+                  <!-- Nacionalidade -->
+                  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input name="paisDeOrigem"  type="text"  pInputText value="{{aluno.paisDeOrigem}}" [(ngModel)]="aluno.paisDeOrigem"> 
+                      <label for="float-input">Pais de Origem</label>
+                    </span>
+                  </div>
+                  
+                  <!-- Nome da mãe -->
+                  <div class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input name="filiacaoMae"  type="text"  pInputText value="{{aluno.filiacaoMae}}" [(ngModel)]="aluno.filiacaoMae"> 
+                      <label for="float-input">Nome da Mãe</label>
+                    </span>
+                  </div>
+
+
+                  <!-- Nome do Pai -->
+                  <div class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input name="filiacaoPai"  type="text"  pInputText value="{{aluno.filiacaoPai}}" [(ngModel)]="aluno.filiacaoPai"> 
+                      <label for="float-input">Nome do Pai</label>
+                    </span>
+                  </div>
+
+                   <!-- Dados Escolares-->
+                   <br /><br />
+                  
+                   <h3 class="ui-g-12 ui-md-12 ui-lg-12">Dados Escolares</h3>
+
+                   <!--Ensino-->
+                   <div class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText  name="noemEnsino" value="{{aluno.nomeEnsino}}" [(ngModel)]="aluno.nomeEnsino" > 
+                      <label for="float-input">Ensino</label>
+                    </span>
+                  </div>  
+
+                  <!--Serie-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text" name="nomeSerie" pInputText  value="{{aluno.nomeSerie}}" [(ngModel)]="aluno.nomeSerie" > 
+                      <label for="float-input">Serie</label>
+                    </span>
+                  </div>  
+
+                  <!--Turma-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-2 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="nomeTurma"  value="{{aluno.nomeTurma}}" [(ngModel)]="aluno.nomeTurma" > 
+                      <label for="float-input">Turma</label>
+                    </span>
+                  </div>  
+
+                  <!--Turno-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="nomeTurno" value="{{aluno.nomeTurno}}" [(ngModel)]="aluno.nomeTurma" > 
+                      <label for="float-input">Turma</label>
+                    </span>
+                  </div>
+                  
+                  <!--Responsavel-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-8 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="nomeResponsavel" value="{{aluno.nomeResponsavel}}" [(ngModel)]="aluno.nomeResponsavel" > 
+                      <label for="float-input">Adulto Responsável</label>
+                    </span>
+                  </div>
+
+                  <!-- Endereço -->
+                  <br /><br />
+                  <h3 class="ui-g-12 ui-md-12 ui-lg-12">Endereço</h3>
+                  
+                  <!--CPE-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText  name="cep" value="{{aluno.cep}}" [(ngModel)]="aluno.cep" > 
+                      <label for="float-input">CEP</label>
+                    </span>
+                  </div>
+
+                  <!--Logradouro-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-7 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText  name="logradouro" value="{{aluno.logradouro}}" [(ngModel)]="aluno.logradouro" > 
+                      <label for="float-input">Logradouro</label>
+                    </span>
+                  </div>
+
+                   <!--Número-->
+                   <div class="ui-g-12 ui-md-6 ui-lg-2 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="numero" value="{{aluno.numero}}" [(ngModel)]="aluno.numero" > 
+                      <label for="float-input">Número</label>
+                    </span>
+                  </div>
+
+                   <!--Município-->
+                   <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="municipio" value="{{aluno.cidade}}" [(ngModel)]="aluno.cidade" > 
+                      <label for="float-input">Município</label>
+                    </span>
+                  </div>
+
+                  <!--Bairro-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="bairro" value="{{aluno.bairro}}" [(ngModel)]="aluno.bairro" > 
+                      <label for="float-input">Bairro</label>
+                    </span>
+                  </div>
+
+                   <!--UF-->
+                   <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="uf" value="{{aluno.uf}}" [(ngModel)]="aluno.uf" > 
+                      <label for="float-input">UF</label>
+                    </span>
+                  </div>
+
+                  <!--Complemento-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="complemento" value="{{aluno.complemento}}" [(ngModel)]="aluno.complemento" > 
+                      <label for="float-input">Complemento</label>
+                    </span>
+                  </div>
+
+                    <!--Distrito-->
+                    <div class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                      <span class="ui-float-label">
+                        <input  type="text"  pInputText name="distrito" value="{{aluno.distrito}}" [(ngModel)]="aluno.distrito" > 
+                        <label for="float-input">Distrito</label>
+                      </span>
+                    </div>
+
+                     <!-- Contatos -->
+                   <br /><br />
+                  
+                   <h3 class="ui-g-12 ui-md-12 ui-lg-12">Contatos</h3>
+
+                   <!--Telefone do Aluno-->
+                   <div class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText  name="telefone" value="{{aluno.telefone}}" [(ngModel)]="aluno.telefone" > 
+                      <label for="float-input">Telefone</label>
+                    </span>
+                  </div>
+
+                  <!--Telefone do Responsavel-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="telefoneRespon" value="{{aluno.telefoneRespon}}" [(ngModel)]="aluno.telefoneRespon" > 
+                      <label for="float-input">Telefone do Responsável</label>
+                    </span>
+                  </div>
+
+                  <!--Email-->
+                  <div class="ui-g-12 ui-md-6 ui-lg-12 ui-fluid">
+                    <span class="ui-float-label">
+                      <input  type="text"  pInputText name="email" value="{{aluno.email}}" [(ngModel)]="aluno.email" > 
+                      <label for="float-input">Email do Aluno</label>
+                    </span>
+                  </div>
+
+
+                    <!-- Botoes -->
+                    
+                    <div style="margin-top: 20px" class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                      <button pButton type="button" label="Atualizar" class="ui-button-raised ui-button-primary"
+                      (click)="atualizar(aluno)"></button>
+                    </div>
+                    
+                    <div style="margin-top: 20px" class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                      <button routerLink="/alunos" pButton type="button" label="Voltar" class="ui-button-raised ui-button-secondary"></button>
+                    </div>
+                  
+                  
+                </div>
+              </div>
+              <div  class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid"  >
+                <p-toast position="bottom-right"></p-toast>
+              </div>
+            </form>
+          </div> 
+          
+          <!-- fim form -->
+          
+          <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>

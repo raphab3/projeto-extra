@@ -1,0 +1,441 @@
+<section class="content-header">
+  <h1>
+    Cadastro
+    <small>Servidores</small>
+  </h1>
+  
+</section>
+
+<!-- Main content -->
+<section class="content">
+  
+  <div class="row">
+    <div class="col-md-3">
+      
+      <!-- Profile Image -->
+      <div class="box box-primary">
+        <div class="box-body box-profile">
+          <h5  class="text-muted text-center">Foto de Perfil</h5>
+          <img id="fotoPerfil" class="profile-user-img img-responsive" src="../../../../assets/dist/img/avatar5.png" alt="User profile picture">
+          
+          
+          <p class="text-muted text-center">Máx: 5mb</p>
+          
+          <div  class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+            
+            <p-fileUpload mode="basic" name="anexo" auto="true" accept="image/*" maxFileSize="1000000" chooseLabel="Anexar" [url]="urlUploadAnexo" (onBeforeSend)="antesUploadAnexo($event)">
+            </p-fileUpload>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-9">
+      <div class="box box-primary">
+        
+        <div class="nav-tabs-custom">
+          
+          <!-- form -->
+          
+          <div class="content">
+            <form  #f="ngForm" (ngSubmit)="onSubimit(f)">
+              <div class="ui-g">
+                <div class="ui-g-12">
+                  
+                  <!-- Data de Cadastro -->
+                  
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-calendar [(ngModel)]="dataCadastro" dateFormat="dd-mm-yy" [disabled]="disabled" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataCadastro" [ngModel]="servidor.dataCadastro">
+                      </p-calendar>
+                      <label for="float-input">Data Cadastro</label>
+                    </span>
+                  </div>
+                  
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-offset-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-calendar [(ngModel)]="dataCadastro" dateFormat="dd-mm-yy" [disabled]="disabled" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataCadastro" [ngModel]="servidor.dataCadastro">
+                      </p-calendar>
+                      <label for="float-input">Última alteração</label>
+                    </span>
+                  </div>
+                  <br /><br />
+                  <h3 class="ui-g-12 ui-md-12 ui-lg-12">Dados Pessoais</h3>
+                  
+                  <!-- codigo -->
+                  <div class="form-group" class="ui-g-12 ui-md-2 ui-lg-2 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control"  name="codigo" [(ngModel)]="servidor.codigo"> 
+                      <label for="float-input">Matrícula</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- Nome do Servidor -->
+                  <div class="form-group" class="ui-g-12 ui-md-10 ui-lg-5 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="nome" [(ngModel)]="servidor.nome"> 
+                      <label for="float-input">Nome do Servidor</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- Nome social do Servidor -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-5 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="nomeSocial" [ngModel]="nomeSocial"> 
+                      <label for="float-input">Nome Social do Servidor</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- CPF do Servidor -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="cpf" [ngModel]="cpf"> 
+                      <label for="float-input">CPF</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- Data de Nascimento -->
+                  
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-calendar  dateFormat="dd-mm-yy" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataNascimento" [ngModel]="dataNascimento">
+                      </p-calendar>
+                      <label for="float-input">Data de Nascimento</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- Sexo -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="sexo" [ngModel]="sexo"> 
+                      <label for="float-input">Sexo</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!-- Cor/raça -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="corRaca" [ngModel]="corRaca"> 
+                      <label for="float-input">Cor/Raça</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!-- Nacionalidade -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="nacionalidade" [ngModel]="nacionalidade"> 
+                      <label for="float-input">Nacionalidade</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!--País de Origem -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="paisDeOrigem" [ngModel]="paisDeOrigem"> 
+                      <label for="float-input">País de Origem</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!-- Estado de Origem -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="estadoDeOrigem" [ngModel]="estadoDeOrigem"> 
+                      <label for="float-input">Estado de Origem</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!-- Município de Origem -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-3 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="municipioDeOrigem" [ngModel]="municipioDeOrigem"> 
+                      <label for="float-input">Município de Origem</label>
+                    </span>
+                  </div> 
+                  
+                  
+                  <!--Número de Identificação Social (NIS) -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="nis" [ngModel]="nis"> 
+                      <label for="float-input">Número de Identificação Social (NIS)</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!-- Filiação -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-dropdown [options]="filiacao" [autoWidth]='false'></p-dropdown>
+                      <label for="float-input">Selecione Filiação</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!-- Filiação1 -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="filiacao1" [ngModel]="filiacao1"> 
+                      <label for="float-input">Filiação 1</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  Filiação2 -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="filiacao2" [ngModel]="filiacao2"> 
+                      <label for="float-input"> Filiação 2</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- Endereço -->
+                  <br /><br />
+                  <h3 class="ui-g-12 ui-md-12 ui-lg-12">Endereço</h3>
+                  
+                  <!--  Zona Residencial -->
+                  <div class="form-group" class="ui-g-12 ui-md-12 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-dropdown [options]="filiacao" [autoWidth]='false'></p-dropdown>
+                      <label for="float-input">Zona Residêncial</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  CEP -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="cep" [ngModel]="filicepacao2"> 
+                      <label for="float-input"> CEP</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  Logradouro -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="logradouro" [ngModel]="logradouro"> 
+                      <label for="float-input">Logradouro</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  Numero -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="numero" [ngModel]="numero"> 
+                      <label for="float-input">Número</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!--  Complemento -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="complemento" [ngModel]="complemento"> 
+                      <label for="float-input">Complemento</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!-- Bairro -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="bairro" [ngModel]="bairro"> 
+                      <label for="float-input"> Bairro</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!--  UF  -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-dropdown [options]="filiacao" [autoWidth]='false'></p-dropdown>
+                      <label for="float-input">UF</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--Municipio -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="localidade" [ngModel]="localidade"> 
+                      <label for="float-input">Cidade</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  Distrito -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="distrito" [ngModel]="distrito"> 
+                      <label for="float-input">Distrito</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- Contato -->
+                  <br /><br />
+                  <h3 class="ui-g-12 ui-md-12 ui-lg-12">Contato</h3>
+                  
+                  
+                  
+                  <!--  Telefone  -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="telefone" [ngModel]="telefone"> 
+                      <label for="float-input">Telefone</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!--  Email  -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="email" [ngModel]="email"> 
+                      <label for="float-input">E-mail</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!-- Formaçao Educacional -->
+                  <br /><br />
+                  
+                  
+                  <h3 class="ui-g-12 ui-md-12 ui-lg-12">Formação Educacional</h3>
+                  
+                  
+                  <p-fieldset legend="Curso" [toggleable]="true" class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+                        
+                  <!--  Nível de Graduação -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-dropdown [options]="filiacao" [autoWidth]='false'></p-dropdown>
+                      <label for="float-input">Nível de Graduação</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  Instituicao de ensino  -->
+                  <div class="form-group" class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+                    <span class="ui-float-label">
+                      <input type="text" class="form-control" name="instituacaoDeEnsino" [ngModel]="instituacaoDeEnsino"> 
+                      <label for="float-input">Instituição de Ensino</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                  <!--  área -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-dropdown [options]="filiacao" [autoWidth]='false'></p-dropdown>
+                      <label for="float-input">Área</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  Curso -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-6 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-dropdown [options]="filiacao" [autoWidth]='false'></p-dropdown>
+                      <label for="float-input">Curso</label>
+                    </span>
+                  </div>
+
+
+                  <!--  situacao -->
+                  <div class="form-group" class="ui-g-12 ui-md-12 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-dropdown [options]="filiacao" [autoWidth]='false'></p-dropdown>
+                      <label for="float-input">Situação</label>
+                    </span>
+                  </div>
+                  
+
+
+                  <!--  Data de inicio -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-calendar  dateFormat="dd-mm-yy" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataInicio" [ngModel]="dataInicio">
+                      </p-calendar>
+                      <label for="float-input">Data de Início</label>
+                    </span>
+                  </div>
+                  
+                  
+                  <!--  Data Fim -->
+                  <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid">
+                    <span class="ui-float-label">
+                      <p-calendar  dateFormat="dd-mm-yy" showButtonBar="true" [showIcon]="true" [locale]="pt" name="dataFim" [ngModel]="dataFim">
+                      </p-calendar>
+                      <label for="float-input">Data de Conclusão</label>
+                    </span>
+                  </div>
+                  
+                  
+                  
+                </p-fieldset>            
+
+                  <div class="ui-g-12 ui-md-12 ui-lg-offset-8 ui-lg-4 ui-fluid" style="margin-bottom: 30px;">
+                    <button pButton type="button" label="Adicionar novo curso"  class="ui-button-raised ui-button-success"></button> 
+                  </div>
+                  
+                
+                  
+                  <!-- Botoes -->
+                  
+                  <div class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                    <button pButton type="button" label="Salvar" type="submit" class="ui-button-raised ui-button-primary" [disabled]="!f.valid"></button>
+                    
+                  </div>
+                  <div   class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                    <button pButton type="button" label="Limpar" class="ui-button-raised ui-button-secondary"
+                    (click)="limpar(f)" (click)="clear()">
+                  </button>
+                </div>
+                <div   class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+                  <button pButton routerLink="/servidores" type="button" label="Voltar" class="ui-button-raised ui-button-danger"></button>
+                </div>
+                
+                
+              </div>
+            </div>
+          </form>
+        </div> 
+        
+        <!-- fim form -->
+        
+        <div class="tab-content">
+          <div class="active tab-pane" id="activity">
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

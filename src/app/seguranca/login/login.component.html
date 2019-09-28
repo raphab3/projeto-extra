@@ -1,0 +1,52 @@
+<div id="background">
+  <div class="login-box">
+    <div class="login-logo">
+      <img src="assets/img/logo.png">
+    </div>
+    
+    
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg">Entre para iniciar sua sessão</p>
+      <!-- {{auth.jwtPayload | json }} -->
+      
+      <form autocomplete="off" #f="ngForm">
+        <div class="form-group has-feedback">
+          <input ngModel name="usuario" type="email" class="form-control" placeholder="Email" #usuario required>
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input ngModel #senha name="senha" type="password" class="form-control" placeholder="Password" required>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        
+        <div class="ui-g">
+          <!-- <div class="ui-g-4 ui-md-4 ui-lg-4 ui-fluid">
+            <p-checkbox  name="gravar" binary="true"></p-checkbox> lembrar
+          </div> -->
+          
+          <div class="ui-g-12  ui-md-12  ui-lg-12 ui-fluid">
+            <button type="submit" [disabled]="!f.valid" (click)="login(usuario.value, senha.value); senha.value = ''; " class="btn btn-primary btn-block btn-flat">Entrar</button>
+          </div>
+        </div>
+
+        
+        
+      </form>
+      
+      <div class="login-box-body">
+        <div class="ui-g-12  ui-md-12  ui-lg-12  ui-fluid">
+        
+            <a href="#">Recuperar senha</a><br>
+
+        </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div  class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid"  >
+  <p-toast position="bottom-right"></p-toast>
+</div>
+

@@ -1,0 +1,534 @@
+  <!-- <div *ngIf="f.invalid && f.dirty"  class="alert alert-danger">
+    Preencha todos os campos corretamente!
+    
+  </div> -->
+  
+  
+  <section class="content-header">
+    <h1> Cadastro <small>Unidade Educacional</small> </h1>
+    
+  </section>
+  
+  <!--   
+    <section class="content">
+      
+      <div class="row">
+        
+        <div class="col-md-12">
+          <div class="nav-tabs-custom">
+            <div class="tab-content">
+              
+            </div>
+          </div>
+        </div>
+      </div> -->
+      
+      
+      
+      <section class="content">
+        
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div class="box box-primary">
+              <div class="nav-tabs-custom">
+                <div class="tab-content">
+                  <!-- form -->
+                  
+                  <form   autocomplete="off" #f="ngForm" (ngSubmit)="onSubimit(f)">
+                    <div class="ui-g">
+                      <div class="ui-g-12">
+                        
+
+                        <!-- Unidade Educacional -->
+                        <div class="form-group has-danger" class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+                          <span class="ui-float-label">
+
+                            <input  autocomplete="off" #unidade="ngModel" name="unidadeEducacional"   type="text"  pInputText [ngModel]="unidade.unidadeEducacional" (click)="clear()">                           
+                            <label class="nomeCampo" class="form-control-label" for="float-input"
+                            >Nome da Unidade
+                          </label>
+                                                 
+                   </span>
+                  
+                </div>
+                           
+           
+            
+            <!-- Cep -->
+            <div class="form-group" class="ui-g-12 ui-md-6 ui-lg-12 ui-fluid">
+              <span class="ui-float-label">
+                <input name="cep"  type="text"  pInputText #cep="ngModel" [ngModel]="unidade.cep" required (blur)="consultaCep(cep.value, f)"> 
+                <label class="nomeCampo" class="form-control-label" for="float-input"
+                *ngIf="cep.hasError('required') && cep.pristine "
+                >CEP</label>
+                <label class="nomeCampo" class="form-control-label" for="float-input"
+                *ngIf="cep.hasError('required') && cep.dirty" style="color: red;"
+                > Obrigatório
+              </label>
+              <label class="nomeCampo" class="form-control-label" for="float-input"
+              *ngIf="cep.valid" style="color: rgb(6, 155, 6)"> Válido 
+            </label>
+          </span>
+        </div>
+        
+        <!-- endereco -->
+        <div class="form-group" class="ui-g-12 ui-md-12 ui-lg-6 ui-fluid">
+          <span class="ui-float-label">
+            <input name="endereco"  type="text"  pInputText #endereco="ngModel" [ngModel]="unidade.endereco" required> 
+            <label class="nomeCampo" class="form-control-label" for="float-input"
+            *ngIf="endereco.hasError('required') && endereco.pristine "
+            >Endereço</label>
+            <label class="nomeCampo" class="form-control-label" for="float-input"
+            *ngIf="endereco.hasError('required') && endereco.dirty" style="color: red;"
+            >Obrigatório
+          </label>
+          <label class="nomeCampo" class="form-control-label" for="float-input"
+          *ngIf="endereco.valid" style="color: rgb(6, 155, 6)"> Válido 
+        </label>
+      </span>
+      
+    </div>
+    
+    <!-- complemento -->
+    <div class="form-group" class="ui-g-9 ui-md-6 ui-lg-4 ui-fluid">
+      <span class="ui-float-label">
+        <input name="complemento"  type="text"  pInputText #complemento="ngModel" [ngModel]="unidade.complemento" > 
+        <label for="float-input">Complemento</label>
+        
+      </span>
+     
+      </div>
+      
+      <!-- numero -->
+      <div class="form-group" class="ui-g-3 ui-md-2 ui-lg-2 ui-fluid">
+        <span class="ui-float-label">
+          <input name="numero"  type="text"  pInputText #numero="ngModel" [ngModel]="unidade.numero" required> 
+          <label class="nomeCampo" class="form-control-label" for="float-input"
+          *ngIf="numero.hasError('required') && numero.pristine "
+          >Número</label>
+          <label class="nomeCampo" class="form-control-label" for="float-input"
+          *ngIf="numero.hasError('required') && numero.dirty" style="color: red;"
+          >Obrigatório
+        </label>
+        <label class="nomeCampo" class="form-control-label" for="float-input"
+        *ngIf="numero.valid" style="color: rgb(6, 155, 6)"> Válido 
+      </label>
+    </span>
+  </div>
+  
+  <!-- bairro -->
+  <div class="form-group" class="ui-g-4 ui-md-4 ui-lg-5 ui-fluid">
+    <span class="ui-float-label">
+      <input name="bairro" type="text"  pInputText #bairro="ngModel" [ngModel]="unidade.bairro" required> 
+      <label class="nomeCampo" class="form-control-label" for="float-input"
+      *ngIf="bairro.hasError('required') && bairro.pristine "
+      >Bairro</label>
+      <label class="nomeCampo" class="form-control-label" for="float-input"
+      *ngIf="bairro.hasError('required') && bairro.dirty" style="color: red;"
+      >Obrigatório
+    </label>
+    <label class="nomeCampo" class="form-control-label" for="float-input"
+    *ngIf="bairro.valid" style="color: rgb(6, 155, 6)"> Válido 
+  </label>
+</span>
+</div>
+
+<!-- cidade -->
+<div class="form-group" class="ui-g-5 ui-md-6 ui-lg-5 ui-fluid">
+  <span class="ui-float-label">
+    <input name="cidade" type="text"  pInputText #cidade="ngModel" [ngModel]="unidade.cidade" required> 
+    <label class="nomeCampo" class="form-control-label" for="float-input"
+    *ngIf="cidade.hasError('required') && cidade.pristine ">Cidade
+  </label>
+  <label class="nomeCampo" class="form-control-label" for="float-input"
+  *ngIf="cidade.hasError('required') && cidade.dirty" style="color: red;">Obrigatório
+</label>
+<label class="nomeCampo" class="form-control-label" for="float-input"
+*ngIf="cidade.valid" style="color: rgb(6, 155, 6)"> Válido 
+</label>
+</span>
+
+</div>
+
+<!-- uf -->
+<div class="form-group" class="ui-g-3 ui-md-6 ui-lg-2 ui-fluid">
+  <span class="ui-float-label">
+    <input name="uf" id="float-input" type="text"  pInputText #uf="ngModel" [ngModel]="unidade.uf" required> 
+    <label class="nomeCampo" class="form-control-label" for="float-input"
+    *ngIf="uf.hasError('required') && uf.pristine ">UF
+  </label>
+  <label class="nomeCampo" class="form-control-label" for="float-input"
+  *ngIf="uf.hasError('required') && uf.dirty" style="color: red;">Obrigatório
+</label>
+<label class="nomeCampo" class="form-control-label" for="float-input"
+*ngIf="uf.valid" style="color: rgb(6, 155, 6)"> Válido 
+</label>
+</span>
+
+</div>
+
+<br /><br />
+
+      
+  <!-- Infra-Estrutura Educacional
+  <h3 class="ui-g-12 ui-md-12 ui-lg-12">Infra-Estrutura Educacional</h3>   -->
+  
+  <!-- Campo Número de Salas
+  <div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+    <span class="ui-float-label">
+
+      <input  #numSalas="ngModel" name="numSalas"   type="text" pInputText #numSalas="ngModel"
+       [ngModel]="unidade.numSalas" required>                           
+        <label class="nomeCampo" class="form-control-label" for="float-input">
+        Nº: Salas
+       </label>
+                           
+    </span>
+
+</div>
+-->
+
+<!-- Campo Número de Salas Disponíveis
+
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+
+    <input  #numSalasDisponiveis="ngModel" name="numSalasDisponiveis"   type="text" pInputText #numSalasDisponiveis="ngModel"
+     [ngModel]="unidade.numSalasDisponiveis" required>                           
+      <label class="nomeCampo" class="form-control-label" for="float-input">
+      Nº: Salas Disponíveis
+     </label>
+                         
+  </span>
+
+</div>
+-->
+
+<!-- Campo Número de Salas sem uso
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+
+    <input  #numSalasSemUso="ngModel" name="numSalasSemUso"   type="text" pInputText #numSalasSemUso="ngModel"
+     [ngModel]="unidade.numSalasSemUso" required>                           
+      <label class="nomeCampo" class="form-control-label" for="float-input">
+      Nº: Salas sem Uso
+     </label>
+                         
+  </span>
+
+</div>
+-->
+<!-- Campo Motivo
+<div class="form-group has-danger" class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+  <span class="ui-float-label">
+
+    <textarea pInputTextarea [(ngModel)]="property"  #numSalasSemUso="ngModel"
+       name="numSalasSemUso"   type="te" pInputText #numSalasSemUso="ngModel"
+      [ngModel]="unidade.numSalasSemUso" required   >
+    </textarea>                
+    <label class="nomeCampo" class="form-control-label" for="float-input">
+      Motivo de Salas sem Uso
+    </label>
+                         
+  </span>
+
+</div>
+-->
+
+
+<!-- Número de Ginásios Cobertos
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+
+    <input  #numGinasioCoberto="ngModel" name="numSalasSemUso"   type="text" pInputText #numGinasioCoberto="ngModel"
+     [ngModel]="unidade.numGinasioCoberto" required>                           
+      <label class="nomeCampo" class="form-control-label" for="float-input">
+        Nº: de Ginásios Cobertos
+     </label>
+                         
+  </span>
+
+</div>
+-->
+
+<!-- Número de Ginásios Descobertos
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+
+    <input  #numGinasioDescoberto="ngModel" name="nnumGinasioDescoberto"   type="text" pInputText #numGinasioDescoberto="ngModel"
+     [ngModel]="unidade.numGinasioDescoberto" required>                           
+      <label class="nomeCampo" class="form-control-label" for="float-input">
+      Nº: Ginásio Descobertos
+     </label>
+                         
+  </span>
+
+</div>
+-->
+
+
+<!--Obs Ginásios 
+<div class="form-group has-danger" class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid">
+  <span class="ui-float-label">
+
+    <textarea pInputTextarea [(ngModel)]="property"  #obsGinasio="ngModel"
+       name="obsGinasio"   type="te" pInputText #obsGinasio="ngModel"
+      [ngModel]="unidade.obsGinasio" required   >
+    </textarea>                
+    <label class="nomeCampo" class="form-control-label" for="float-input">
+       Obs  Ginásio 
+    </label>
+                         
+  </span>
+
+</div>
+-->
+
+<!--  Itens de Infra-Estrutura Educacional-->
+
+<h3 class="ui-g-12 ui-md-12 ui-lg-12">Outros Itens de Infra-Estrutura Educacional</h3> 
+
+<!-- Playground-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.playGround"  name="playGround" binary="true"></p-checkbox> Playground                           
+  </span>
+</div>
+
+<!-- Biblioteca-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.biblioteca"  name="biblioteca" binary="true"></p-checkbox> Biblioteca                           
+  </span>
+</div>
+
+<!-- Refeitório-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.refeitorio"  name="refeitorio" binary="true"></p-checkbox> Refeitório                          
+  </span>
+</div>
+
+<!-- Quadra Desportiva-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.quadraEsportiva"  name="quadraEsportiva" binary="true"></p-checkbox> Quadra Esportiva                          
+  </span>
+</div>
+
+<!-- Sala de Leitura-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaLeitura"  name="salaLeitura" binary="true"></p-checkbox> Sala de Leitura                      
+  </span>
+</div>
+
+<!-- Campo de Futebol-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.campoFutebol"  name="campoFutebol" binary="true"></p-checkbox> Campo de Futebol                           
+  </span>
+</div>
+
+<!-- Laboratório de Ciências-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.laboratorioDeCiencias"  name="laboratorioDeCiencias" binary="true"></p-checkbox> Laboratório de Ciências                          
+  </span>
+</div>
+
+<!-- Laboratório de Informática-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.laboratorioDeInformatica"  name="laboratorioDeInformatica" binary="true"></p-checkbox> Laboratório de Informática                         
+  </span>
+</div>
+
+<!-- Laboratório de Robôtica-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.laboratorioDeRobotica"  name="laboratorioDeRobotica" binary="true">
+    </p-checkbox> Laboratório de Robôtica                         
+  </span>
+</div>
+
+
+
+<!-- Sala do Diretor-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaDiretoria"  name="salaDiretoria" binary="true">
+    </p-checkbox> Sala do Diretor                         
+  </span>
+</div>
+
+<!-- Sala dos Professores-->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaProfessores"  name="salaProfessores" binary="true">
+    </p-checkbox> Sala dos Professores                        
+  </span>
+</div>
+
+<!-- Sala de Atendimento Especial -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.salaAtendimentoEspecial"  name="salaAtendimentoEspecial" binary="true">
+    </p-checkbox> Sala de Atendimento Especial                        
+  </span>
+</div>
+
+<!-- Conzinha -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.cozinha"  name="cozinha" binary="true">
+    </p-checkbox> Conzinha                        
+  </span>
+</div>
+
+<!-- Sanitário Fora do Prédio -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-3 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.sanitarioForaPredio"  name="sanitarioForaPredio" binary="true">
+    </p-checkbox> Sanitário Fora do Prédio                     
+  </span>
+</div>
+
+<!-- Sanitário Dentro do Prédio -->
+<div class="form-group has-danger" class="ui-g-6 ui-md-3 ui-lg-6 ui-fluid">
+  <span class="ui-float-label">
+    <p-checkbox [(ngModel)]="unidade.sanitarioDentroPredio"  name="sanitarioDentroPredio" binary="true">
+    </p-checkbox> Sanitário Dendtro do Prédio                     
+  </span>
+</div>
+
+
+
+<!--  Servidores-->
+
+
+
+<h3 class="ui-g-12 ui-md-12 ui-lg-12">Servidores</h3> 
+
+<!-- <div class="ui-g-12">
+  <p-table #dt [columns]="cols" [value]="servidores" [paginator]="true" [rows]="10" [responsive]="true">
+      <ng-template pTemplate="caption">
+          <div style="text-align: right">        
+              <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+              <input type="text" responsive="true" pInputText size="30%" placeholder="Pesquisar" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th rowspan="1" style="width:40px;">#</th>
+              <th name="nucleoTH" colspan="7">Nome</th>
+              
+              <th colspan="3">Função</th>
+              <th colspan="1" style="width:150px; text-align: center;">Ação</th>
+          </tr>
+          
+      </ng-template>
+      <ng-template pTemplate="body" let-dados>
+          <tr>
+              <td rowspan="1">{{dados.id}}</td>
+              <td colspan="7">{{dados.nome}}</td>
+              <td colspan="3" [ngStyle]="{'color': dados.nucleo == 'Aldeia dos SOS' ? 'red' : 'blue'}">{{dados.funcao}}</td>
+              
+              <td colspan="1" style="width:120px; text-align: center;">
+                  <a id="eye" pButton icon='fa fa-eye'  pTooltip="Visualizar" tooltipPosition="top" 
+                  [routerLink]="['/nucleos-regionais/detalhe', dados.id]"></a>
+                  
+                  <a id="pencil" pButton icon='fa fa-pencil' pTooltip="Editar" tooltipPosition="top"
+                  [routerLink]="['/nucleos-regionais/editar', dados.id]"></a>
+
+                  <a id="graduation-cap" pButton icon='fa fa-graduation-cap' pTooltip="Unidades Educacionais" tooltipPosition="left"
+                  [routerLink]="['/#']"></a>
+
+                  
+                  
+                  <<a id="trash " pButton icon='fa fa-trash' pTooltip="Excluir" tooltipPosition="top"
+                      (click)="deletar(dados.nucleo, dados.id)"></a> 
+                  </td>
+              </tr>
+          </ng-template>
+          
+      </p-table>
+      
+  </div> -->
+
+
+<!--segunda tabela-->
+
+<div class="ui-g-12">
+<p-table #dt [columns]="cols" [value]="servidores" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="caption">
+      <div style="text-align: right">        
+          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+          <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+      </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th *ngFor="let col of columns">
+              {{col.header}}
+          </th>
+      </tr>
+      <tr>
+          <th *ngFor="let col of columns" [ngSwitch]="col.field">
+              <input *ngSwitchCase="'id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+              <div *ngSwitchCase="'nome'">
+                <input *ngSwitchCase="'nome'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                  <!-- <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="yearFilter"></i> -->
+                  <!-- <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="1970" [max]="2010" (onChange)="onYearChange($event, dt)"></p-slider> -->
+              </div>
+              <input *ngSwitchCase="'funcao'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+              <!-- <p-dropdown *ngSwitchCase="'funcao'" [options]="brands" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown> -->
+              <!-- <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect> -->
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">
+              {{rowData[col.field]}}          
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+
+</div>
+
+<!-- Fim Outros Itens de Infra-Estrutura Educacional-->
+
+<div class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+  <button pButton type="button" label="Salvar" type="submit" class="ui-button-raised ui-button-primary" [disabled]="!f.valid"></button>
+  
+</div>
+<div   class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+  <button pButton type="button" label="Limpar" class="ui-button-raised ui-button-secondary"
+  (click)="limpar(f)" (click)="clear()">
+</button>
+</div>
+<div   class="ui-g-12 ui-md-12 ui-lg-2 ui-fluid">
+  <button pButton routerLink="/unidades-educacionais" type="button" label="Voltar" class="ui-button-raised ui-button-danger"></button>
+</div>
+</div>
+
+</div>
+
+<div  class="ui-g-12 ui-md-12 ui-lg-12 ui-fluid"  >
+  <p-toast position="bottom-right"></p-toast>
+</div>
+
+</form>
+<!-- fim form -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+

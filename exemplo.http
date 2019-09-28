@@ -1,0 +1,45 @@
+http://localhost:3000/nucleos-regionais
+
+###
+http://localhost:3000/nucleos-regionais/1
+
+###
+
+POST http://localhost:3000/calendario HTTP/1.1
+content-type: application/json
+
+# {
+#    "id": "6",
+#       "prefeitura": "PREFEITURA MUNICIPAL DE PENEDO",
+#       "secretaria": "SECRETARIA MUNICIPAL DE EDUCAÇÃO",
+#       "unidade": "ESCOLA BOM JESUS DOS NAVEGANTES",
+#       "anoLetivo": "2015" 
+# }
+
+{
+   "nucleo": "Teste2",
+      "responsavel": "teste",
+      "data": "11-10-2018",
+      "cep": "58058840",
+      "Endereco": "Rua sebastião",
+      "complemento": "perto de algo",
+      "numero": "94",
+      "bairro": "Mangabeira",
+      "cidade": "João Pessoa",
+      "uf": "PB" 
+}
+
+
+
+###
+PUT http://localhost:3000/servidores/1 HTTP/1.1
+content-type: application/json
+
+
+
+  
+###
+
+DELETE  http://localhost:3000/nucleos-regionais/2 HTTP/1.1
+content-type: application/json
+

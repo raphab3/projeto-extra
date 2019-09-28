@@ -1,0 +1,25 @@
+<app-header *ngIf="exibirNavBar()"></app-header>
+<app-menu [style.display] = "mostrarFundo ?  'initial' : 'none' "></app-menu>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" [style.background] = "mostrarFundo ?  '#ecf0f5' : 'url(/assets/img/background-logo.jpg)' ">
+  <!-- <div class="content-wrapper">  -->
+
+  <!-- Content Header (Page header) -->
+ 
+  <!-- Main content -->
+  <section class="content">
+    <!-- Conteudo -->
+    <router-outlet></router-outlet>
+    
+  </section>
+
+ 
+</div>
+
+<app-footer></app-footer>
+
+
+
+
+

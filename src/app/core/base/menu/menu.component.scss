@@ -1,0 +1,44 @@
+
+.treeview-menu .menu-item.ativo{
+    background-image: linear-gradient(to right, #3c8dbc, #3699c9, #2da6d6, #20b3e3, #00c0ef);
+}
+
+.treeview-menu .menu-item.ativo a{
+    color: white;
+    margin: 0px 20px 0 20px;
+    transition: margin 2s;
+}
+
+.treeview-menu .menu-item.ativo a .fa{
+    float: right;
+    margin-top: 0.2em;
+} 
+
+.treeview-menu .menu-item :hover{
+    // background-color: #72BCE7;
+    background-image: linear-gradient(to right, #3c8dbc, #3699c9, #2da6d6, #20b3e3, #00c0ef);
+
+    color: white;
+
+}
+
+
+.content-wrapper{
+    background-color: aquamarine;
+}
+
+li.header{
+    text-align: center;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+li#cabecalhoMenu{
+    background-color: #00c0ef;
+    color: rgb(255, 255, 255);
+}
+
+
+.skin-blue-light .sidebar-menu .treeview-menu > li > a {
+    color: antiquewhite;
+}

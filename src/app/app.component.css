@@ -1,0 +1,7 @@
+.content-wrapper{
+    min-height: 1200px;
+}
+
+body .fc .fc-event{
+    background-color: lawngreen;
+}

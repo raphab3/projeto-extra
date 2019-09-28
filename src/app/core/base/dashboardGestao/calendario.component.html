@@ -1,0 +1,23 @@
+<div id="nomeEscola" class="pad margin no-print">
+        <div class="callout callout-info" style="margin-top: 0;">
+          <h4><i class="fa fa-info"></i> Unidade Educacional:</h4>
+          ESCOLA BOM JESUS DOS NAVEGANTES - PENEDO/AL
+        </div>
+</div>
+
+<app-stat-box></app-stat-box>
+
+
+<div class="ui-g">
+    
+    <div class="ui-g-12 ui-md-12 ui-lg-6 ui-fluid" id="cal">
+        <p-schedule [events]="eventos"  [header]="header" locale="pt" [eventLimit]="4" [editable]="false"></p-schedule>
+
+    </div>
+
+    <div class="ui-g-12 ui-md-12 ui-lg-6 ui-fluid">
+        <br /><br /> <br />
+        <p-chart type="radar" [data]="data"></p-chart>
+
+    </div>
+</div>
