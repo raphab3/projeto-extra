@@ -1,20 +1,16 @@
 package com.databuilder.com.br.abcdata.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.databuilder.com.br.abcdata.entity.enums.TipoEtnia;
 import com.databuilder.com.br.abcdata.entity.enums.TipoGenero;
 import com.databuilder.com.br.abcdata.entity.enums.TipoServidor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -46,10 +42,6 @@ public class Servidor implements Serializable {
 	private Integer etnia; // Campo ENUM
 	private String nacionalidade;
 	private Integer tipoServidor; // Campo ENUM
-
-	@JsonIgnore
-	@ManyToMany(mappedBy = "servidores")
-	private List<UnidadeEducacional> unidadesEducacionais = new ArrayList<>();
 
 	public Servidor(Integer id, Integer matricula, String nome,
 			String cpf, TipoGenero genero, TipoEtnia etnia,

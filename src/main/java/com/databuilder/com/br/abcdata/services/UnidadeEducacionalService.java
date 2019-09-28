@@ -33,9 +33,9 @@ public class UnidadeEducacionalService {
 	@Transactional
 	public UnidadeEducacional insert(UnidadeEducacional obj) {
 
-		UnidadeEducacional newObj = find(obj.getId());
-		updateData(newObj, obj);
-		return reposit.save(newObj);
+		obj.setId(null); // faz o método entender que se não houver ID então é uma alteração
+		return reposit.save(obj);
+
 
 	}
 
@@ -70,26 +70,8 @@ public class UnidadeEducacionalService {
 
 	private void updateData(UnidadeEducacional newObj, UnidadeEducacional obj) {
 
-		newObj.setDataCadastro(obj.getDataCadastro());
 		newObj.setCodigoInep(obj.getCodigoInep());
 		newObj.setUnidadeEducacional(obj.getUnidadeEducacional());
-		newObj.setDependenciaAcessibilidade(obj.getDependenciaAcessibilidade());
-		newObj.setSanitariosComAcessibilidade(obj.getSanitariosComAcessibilidade());
-		newObj.setSanitarioDentroPredio(obj.getSanitarioDentroPredio());
-		newObj.setSanitarioForaPredio(obj.getSanitarioForaPredio());
-		newObj.setBiblioteca(obj.getBiblioteca());
-		newObj.setCozinha(obj.getCozinha());
-		newObj.setLaboratorioDeInformatica(obj.getLaboratorioDeInformatica());
-		newObj.setLaboratorioDeCiencias(obj.getLaboratorioDeCiencias());
-		newObj.setLaboratorioDeRobotica(obj.getLaboratorioDeRobotica());
-		newObj.setSalaDeLeitura(obj.getSalaDeLeitura());
-		newObj.setQuadraEsportiva(obj.getQuadraEsportiva());
-		newObj.setSalaDiretoria(obj.getSalaDiretoria());
-		newObj.setSalaProfessores(obj.getSalaProfessores());
-		newObj.setSalaAtendimentoEspecial(obj.getSalaAtendimentoEspecial());
-		newObj.setPlayground(obj.getPlayground());
-		newObj.setCampoDeFutebol(obj.getCampoDeFutebol());
-		newObj.setRefeitorio(obj.getRefeitorio());
 		
 	}
 

@@ -82,32 +82,14 @@ public class DBService {
 		Servidor ser10 = new Servidor(null, 2018010, log10.getNomeUsuario(),"82165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
 		Servidor ser11 = new Servidor(null, 2018011, log11.getNomeUsuario(),"92165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
 
-		UnidadeEducacional unedu1 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "123456", "EMEF JOAO DORIA DA SILVA", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-		UnidadeEducacional unedu2 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "459877", "EMEM II ARGENTINA PEREIRA GOMES", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-		UnidadeEducacional unedu3 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "984654", "EMEF JOAO GOMES DE SA", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-		UnidadeEducacional unedu4 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "354791", "EMEF ARLINDA MARQUES", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-		UnidadeEducacional unedu5 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "194964", "EMEF TEOTONIO VILELA", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-		UnidadeEducacional unedu6 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "654749", "EMEF CRISTIAN LOBATO", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-		UnidadeEducacional unedu7 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "321478", "EMEF ORLANDO DO MONTE", 1,  1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-		UnidadeEducacional unedu8 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "987412", "EMEM JOSE LINS DO REGO", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
-
-		ser1.getUnidadesEducacionais().addAll(Arrays.asList(unedu1, unedu4));
-		ser2.getUnidadesEducacionais().addAll(Arrays.asList(unedu2));
-		ser3.getUnidadesEducacionais().addAll(Arrays.asList(unedu1, unedu3));
-		ser4.getUnidadesEducacionais().addAll(Arrays.asList(unedu4));
-		ser5.getUnidadesEducacionais().addAll(Arrays.asList(unedu3, unedu5));
-		ser6.getUnidadesEducacionais().addAll(Arrays.asList(unedu3, unedu5));
-		ser7.getUnidadesEducacionais().addAll(Arrays.asList(unedu3, unedu5));
-		ser8.getUnidadesEducacionais().addAll(Arrays.asList(unedu3, unedu5));
-		ser9.getUnidadesEducacionais().addAll(Arrays.asList(unedu3, unedu5));
-		ser10.getUnidadesEducacionais().addAll(Arrays.asList(unedu3, unedu5));
-		ser11.getUnidadesEducacionais().addAll(Arrays.asList(unedu3, unedu5));
-
-		unedu1.getServidores().addAll(Arrays.asList(ser1, ser3));
-		unedu2.getServidores().addAll(Arrays.asList(ser2));
-		unedu3.getServidores().addAll(Arrays.asList(ser3, ser5));
-		unedu4.getServidores().addAll(Arrays.asList(ser4, ser1));
-		unedu5.getServidores().addAll(Arrays.asList(ser5));
+		UnidadeEducacional unedu1 = new UnidadeEducacional(null, "123456", "EMEF JOAO DORIA DA SILVA");
+		UnidadeEducacional unedu2 = new UnidadeEducacional(null, "459877", "EMEM II ARGENTINA PEREIRA GOMES");
+		UnidadeEducacional unedu3 = new UnidadeEducacional(null, "984654", "EMEF JOAO GOMES DE SA");
+		UnidadeEducacional unedu4 = new UnidadeEducacional(null, "354791", "EMEF ARLINDA MARQUES");
+		UnidadeEducacional unedu5 = new UnidadeEducacional(null, "194964", "EMEF TEOTONIO VILELA");
+		UnidadeEducacional unedu6 = new UnidadeEducacional(null, "654749", "EMEF CRISTIAN LOBATO");
+		UnidadeEducacional unedu7 = new UnidadeEducacional(null, "321478", "EMEF ORLANDO DO MONTE");
+		UnidadeEducacional unedu8 = new UnidadeEducacional(null, "987412", "EMEM JOSE LINS DO REGO");
 
 		servidorRepository.saveAll(Arrays.asList(ser1, ser2, ser3, ser4, ser5, ser6, ser7, ser8, ser9, ser10, ser11));
 
