@@ -8,7 +8,7 @@ Angular + SpringBoot
 
 ## 1810022927 | Tauan Correa Felizardo | tauan-rj@hotmail.com
 
-## Israel
+## 1610015892 | Israel Araújo Rodrigues | Isra.rar@icloud.com
 
 ## José neto
 
