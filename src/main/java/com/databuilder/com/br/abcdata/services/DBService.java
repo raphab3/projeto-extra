@@ -70,17 +70,17 @@ public class DBService {
 		loginRepository
 				.saveAll(Arrays.asList(log1, log2, log3, log4, log5, log6, log7, log8, log9, log10, log11, log12));
 
-		Servidor ser1 = new Servidor(null, new Date(), new Date(), 2018001, log1.getNomeUsuario(), null, "01962636461", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.BRANCA, "BRASILEIRA", log1,"MARIA JOSEFINA", "MARIO JORGE LOBADO", TipoServidor.ADMINISTRATIVO);
-		Servidor ser2 = new Servidor(null, new Date(), new Date(), 2018002, log2.getNomeUsuario(), null, "12345678944", sdf.parse("09/02/1987 00:00"), TipoGenero.FEMININO, TipoEtnia.BRANCA, "BRASILEIRA", log2, "JOANA BEZERRA", "LOMBARDI ALMEIDA", TipoServidor.PEDAGOGICO);
-		Servidor ser3 = new Servidor(null, new Date(), new Date(), 2018003, log3.getNomeUsuario(), null, "55544466677", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.NEGRA, "BRASILEIRA", log3, "MARIA DAS DORES", "HONORATO FRAGOSO", TipoServidor.PROFESSOR);
-		Servidor ser4 = new Servidor(null, new Date(), new Date(), 2018004, log4.getNomeUsuario(), null, "99988855532", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.PARDA, "BRASILEIRA", log4, "MARIAANA XIMENES", "CLAUDIO ANTUNES CALADO", TipoServidor.PROFESSOR);
-		Servidor ser5 = new Servidor(null, new Date(), new Date(), 2018005, log5.getNomeUsuario(), null, "32165498799", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", log5, "CANDIDA BATISTA", "MAURO JUSTINO ALVES", TipoServidor.PROFESSOR);
-		Servidor ser6 = new Servidor(null, new Date(), new Date(), 2018006, log6.getNomeUsuario(), null, "42165498799", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", log6, "FLORENTINA TORRES", "MAURO JUSTINO ALVES", TipoServidor.PROFESSOR);
-		Servidor ser7 = new Servidor(null, new Date(), new Date(), 2018007, log7.getNomeUsuario(), null, "52165498799", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", log7, "MARIA APARECIDA CASTRO", "MAURO JUSTINO ALVES", TipoServidor.PROFESSOR);
-		Servidor ser8 = new Servidor(null, new Date(), new Date(), 2018008, log8.getNomeUsuario(), null, "62165498799", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", log8, "SANDRO RODRIGUES LUNA", "MAURO JUSTINO ALVES", TipoServidor.PROFESSOR);
-		Servidor ser9 = new Servidor(null, new Date(), new Date(), 2018009, log9.getNomeUsuario(), null, "72165498799", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", log9, "BARAK OBAMA DA SILVA", "MAURO JUSTINO ALVES", TipoServidor.PROFESSOR);
-		Servidor ser10 = new Servidor(null, new Date(), new Date(), 2018010, log10.getNomeUsuario(), null, "82165498799", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", log10, "XIMENES SILVA MARQUES", "MAURO JUSTINO ALVES", TipoServidor.PROFESSOR);
-		Servidor ser11 = new Servidor(null, new Date(), new Date(), 2018011, log11.getNomeUsuario(), null, "92165498799", sdf.parse("09/02/1987 00:00"), TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", log11, "CRISTIANO SILVA", "MAURO JUSTINO ALVES", TipoServidor.PROFESSOR);
+		Servidor ser1 = new Servidor(null, 2018001, log1.getNomeUsuario(),"01962636461", TipoGenero.MASCULINO, TipoEtnia.BRANCA, "BRASILEIRA", TipoServidor.ADMINISTRATIVO);
+		Servidor ser2 = new Servidor(null, 2018002, log2.getNomeUsuario(),"12345678944", TipoGenero.FEMININO, TipoEtnia.BRANCA, "BRASILEIRA", TipoServidor.PEDAGOGICO);
+		Servidor ser3 = new Servidor(null, 2018003, log3.getNomeUsuario(),"55544466677", TipoGenero.MASCULINO, TipoEtnia.NEGRA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser4 = new Servidor(null, 2018004, log4.getNomeUsuario(),"99988855532", TipoGenero.MASCULINO, TipoEtnia.PARDA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser5 = new Servidor(null, 2018005, log5.getNomeUsuario(),"32165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser6 = new Servidor(null, 2018006, log6.getNomeUsuario(),"42165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser7 = new Servidor(null, 2018007, log7.getNomeUsuario(),"52165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser8 = new Servidor(null, 2018008, log8.getNomeUsuario(),"62165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser9 = new Servidor(null, 2018009, log9.getNomeUsuario(),"72165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser10 = new Servidor(null, 2018010, log10.getNomeUsuario(),"82165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
+		Servidor ser11 = new Servidor(null, 2018011, log11.getNomeUsuario(),"92165498799", TipoGenero.MASCULINO, TipoEtnia.AMARELA, "BRASILEIRA", TipoServidor.PROFESSOR);
 
 		UnidadeEducacional unedu1 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "123456", "EMEF JOAO DORIA DA SILVA", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);
 		UnidadeEducacional unedu2 = new UnidadeEducacional(null, new Date(System.currentTimeMillis()), "459877", "EMEM II ARGENTINA PEREIRA GOMES", 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1);

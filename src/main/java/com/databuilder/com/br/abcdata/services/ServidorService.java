@@ -104,12 +104,8 @@ public class ServidorService {
 	
 	
 	private void updateData(Servidor newObj, Servidor obj) {
-		newObj.setDataCadastro(obj.getDataCadastro());
-		newObj.setDataUltimaAlteracao(obj.getDataUltimaAlteracao());
 		newObj.setNome(obj.getNome());
-		newObj.setNomeSocial(obj.getNomeSocial());
 		newObj.setCpf(obj.getCpf());
-		newObj.setDataNascimento(obj.getDataNascimento());
 		newObj.setGenero(obj.getGenero());
 		newObj.setEtnia(obj.getEtnia());
 		newObj.setNacionalidade(obj.getNacionalidade());		
