@@ -33,7 +33,7 @@ public class UnidadeEducacionalService {
 	@Transactional
 	public UnidadeEducacional insert(UnidadeEducacional obj) {
 
-		obj.setId(null); // faz o método entender que se não houver ID então é uma alteração
+		obj.setId(null);
 		return reposit.save(obj);
 
 

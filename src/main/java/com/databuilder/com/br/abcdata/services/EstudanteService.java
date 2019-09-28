@@ -88,36 +88,33 @@ public class EstudanteService {
 
 	public Estudante fromDTO(EstudanteDTO objDto) {
 
-		return new Estudante(objDto.getId(), objDto.getDataCadastro(), objDto.getDataUltimaAlteracao(),
-				objDto.getMatriculaEstudante(), objDto.getNome(), objDto.getDataNascimento(), objDto.getGenero(),
-				objDto.getEtnia(), objDto.getNacionalidade(), null, objDto.getFiliacaoMae(), objDto.getFiliacaoPai(),
-				objDto.getResponsavelEstudante(), objDto.getEmailResponsavel(), objDto.getTelefoneResponsavel(),
-				objDto.getCertidaoNascimento(), objDto.getTransferenciaOutraEscola(), objDto.getFotografia(),
+		return new Estudante(
+				objDto.getId(), 
+				objDto.getMatriculaEstudante(), 
+				objDto.getNome(), 
+				objDto.getGenero(),
+				objDto.getEtnia(), 
+				objDto.getNacionalidade(), 
 				objDto.getSituacaoEstudante()
-//				, objDto.getSerieTurma()
 		);
 
 	}
 
 	private void updateData(Estudante newObj, Estudante obj) {
-		newObj.setDataCadastro(obj.getDataCadastro());
-		newObj.setDataUltimaAlteracao(obj.getDataUltimaAlteracao());
 		newObj.setMatriculaEstudante(obj.getMatriculaEstudante());
 		newObj.setNome(obj.getNome());
-		newObj.setDataNascimento(obj.getDataNascimento());
 		newObj.setTipoGenero(obj.getGenero());
 		newObj.setTipoEtnia(obj.getEtnia());
 		newObj.setNacionalidade(obj.getNacionalidade());
-		newObj.setLogin(obj.getLogin());
-		newObj.setFiliacaoMae(obj.getFiliacaoMae());
-		newObj.setFiliacaoPai(obj.getFiliacaoPai());
-		newObj.setResponsavelEstudante(obj.getResponsavelEstudante());
-		newObj.setEmailResponsavel(obj.getEmailResponsavel());
-		newObj.setTelefoneResponsavel(obj.getTelefoneResponsavel());
-		newObj.setSituacaoEntrega(obj.getCertidaoNascimento());
-		newObj.setSituacaoEntrega1(obj.getTransferenciaOutraEscola());
-		newObj.setSituacaoEntrega2(obj.getFotografia());
 		newObj.setSituacaoEstudante(obj.getSituacaoEstudante());
+	}
+
+	/**
+	 * @return
+	 */
+	public List<Estudante> findAll() {
+		
+		return reposit.findAll();
 	}
 
 }
