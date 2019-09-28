@@ -10,5 +10,5 @@ Angular + SpringBoot
 
 ## 1610015892 | Israel Araújo Rodrigues | Isra.rar@icloud.com
 
-## José neto
+## 1810022272 | José Paulo de Oliveira Neto | 
 
