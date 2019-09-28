@@ -1,0 +1,13 @@
+${AnsiColor.BLUE}
+${AnsiColor.BLUE}
+${AnsiColor.BLUE}  ___  ______  _____      _         _          
+${AnsiColor.BLUE} / _ \ | ___ \/  __ \    | |       | |         
+${AnsiColor.BLUE}/ /_\ \| |_/ /| /  \/  __| |  __ _ | |_   __ _ 
+${AnsiColor.BLUE}|  _  || ___ \| |     / _` | / _` || __| / _` |
+${AnsiColor.BLUE}| | | || |_/ /| \__/\| (_| || (_| || |_ | (_| |
+${AnsiColor.BLUE}\_| |_/\____/  \____/ \__,_| \__,_| \__| \__,_|
+${AnsiColor.BLUE}                            
+${AnsiColor.BLUE} doom
+
+
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+<!-- 	
+	 <changeSet id="1" author="marcio.barbosa">
+		<sql>
+			DROP TABLE IF EXISTS `login`;
+			CREATE TABLE login (
+			    id_login BIGINT NOT NULL AUTO_INCREMENT,
+			    email VARCHAR(100) NOT NULL,
+			    senha VARCHAR(100) NOT NULL,
+			    status INT NOT NULL,
+			    nivel_acesso INT NOT NULL,
+			    PRIMARY KEY (id_login)
+			);
+	    </sql>
+    </changeSet>
+    
+    <changeSet id="2" author="marcio.barbosa">
+    	<sql>
+    		DROP TABLE IF EXISTS `log_acesso`;
+    		CREATE TABLE log_acesso (
+			    id_log_acesso BIGINT NOT NULL AUTO_INCREMENT,
+			    data_acesso DATETIME NOT NULL,
+			    fk_id_login BIGINT,
+                PRIMARY KEY (id_log_acesso),
+				CONSTRAINT FK_Login FOREIGN KEY (fk_id_login) REFERENCES login(id_login)
+			);
+    	</sql>
+    </changeSet>
+	
+	
+	<changeSet id="3" author="marcio.barbosa">
+		<sql>
+			DROP TABLE IF EXISTS `base_de_dados`;
+			CREATE TABLE base_de_dados (
+			    id_base_de_dados BIGINT NOT NULL AUTO_INCREMENT,
+			    email VARCHAR(100) NOT NULL,
+			    servidor VARCHAR(50) NOT NULL,
+			    nome_schema VARCHAR(50) NOT NULL,
+			    token_cliente VARCHAR(250) NOT NULL,
+			    PRIMARY KEY (id_base_de_dados)
+			);
+	    </sql>
+    </changeSet>
+	
+    <changeSet id="4" author="marcio.barbosa">
+	     <sql>
+	     	INSERT INTO login VALUES (
+	     		1,
+	     		'admin@email.com', 
+	     		'123@123', 
+	     		1, 
+	     		1
+	     	);
+	    </sql>
+    </changeSet>
+    
+    <changeSet id="5" author="marcio.barbosa">
+	     <sql>
+	     	INSERT INTO base_de_dados VALUES (
+	     		1,
+	     		'admin@email.com', 
+	     		'127.0.0.1', 
+	     		'db_schema_default', 
+	     		'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9TVVBFUlVTVUFSSU8iLCJjcmVhdGVkIjoxNTM3NjQwMjkzNzg1fQ.7_BrkcE7Ibfn-Vv9mziTEfZtz8t2ifGb2DagG2q_WzkLQ6qYC78DSwVU4D_yx5rpfC0L0g70aYUxqQX_oQvAAA'
+	     	);
+	    </sql>
+    </changeSet>
+    
+    <changeSet id="6" author="marcio.barbosa">
+	     <sql>
+	     	CREATE SCHEMA db_schema_default
+	    </sql>
+    </changeSet>
+ -->
+
+</databaseChangeLog>
